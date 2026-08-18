@@ -156,11 +156,24 @@ export default function DeveloperTemplate({ data }: DeveloperTemplateProps) {
                         className="w-full object-cover max-h-[460px] transition-transform duration-500 hover:scale-[1.01]"
                       />
                     ) : (
-                      <div className="w-full min-h-[300px] border border-[#2b3b4d]/20 bg-[#101820]/40 flex flex-col justify-center items-center p-8 text-center font-mono">
-                        <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">0{idx + 1} // {proj.year || "2026"}</span>
-                        <h4 className="text-lg font-bold text-white uppercase tracking-tight">{proj.title}</h4>
-                        <div className="w-16 h-[1px] bg-[#E5A84B]/40 my-3" />
-                        <span className="text-[9px] text-[#E5A84B] tracking-wider">{proj.tech.join(" · ").toUpperCase()}</span>
+                      <div className="w-full p-8 md:p-12 border border-white/10 rounded-sm flex flex-col justify-between min-h-[220px] select-none bg-[#101820] text-gray-400">
+                        <div className="flex justify-between items-start">
+                          <span className="text-[10px] font-mono tracking-widest uppercase text-[#E5A84B]">0{idx + 1}</span>
+                          {proj.year && <span className="text-[10px] font-mono">{proj.year}</span>}
+                        </div>
+                        <div className="my-6">
+                          <h4 className="text-xl font-light uppercase tracking-wider text-white">{proj.title}</h4>
+                          <span className="text-xs uppercase tracking-widest block mt-1">
+                            {proj.category || "Case Study"}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 opacity-70">
+                          {proj.tech && proj.tech.map((t: string, i: number) => (
+                            <span key={i} className="text-[9px] font-mono uppercase tracking-wider">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

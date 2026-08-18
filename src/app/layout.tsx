@@ -6,7 +6,11 @@ export const metadata = {
   description: "Full Stack Engineer",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className="antialiased min-h-screen bg-[#0B1117] text-white">

@@ -1,10 +1,62 @@
 "use client";
-import React, { useState } from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import React from "react";
 
-export default function DeveloperTemplate({ data }) {
+export interface PersonalData {
+  name: string;
+  role: string;
+  bio: string;
+  location: string;
+  github?: string;
+  linkedin?: string;
+  email?: string;
+  profileImage?: string;
+  availability?: string;
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  year?: string;
+  category?: string;
+  featured?: boolean;
+  order?: number;
+  image?: string;
+}
+
+export interface Experience {
+  role: string;
+  company: string;
+  duration: string;
+  description: string;
+}
+
+export interface Service {
+  title: string;
+  description: string;
+}
+
+export interface Stat {
+  label: string;
+  value: string;
+}
+
+export interface PortfolioData {
+  personal: PersonalData;
+  skills: string[];
+  projects: Project[];
+  experience: Experience[];
+  services?: Service[];
+  stats?: Stat[];
+}
+
+export interface DeveloperTemplateProps {
+  data: PortfolioData;
+}
+
+export default function DeveloperTemplate({ data }: DeveloperTemplateProps) {
   const { personal, skills, projects, experience, services } = data;
-  const sortedProjects = [...(projects || [])].sort((a, b) => (a.order || 99) - (b.order || 99));
+  const sortedProjects = [...(projects || [])].sort((a: Project, b: Project) => (a.order || 99) - (b.order || 99));
 
   return (
     <div className="bg-[#0B1117] text-[#A8AAA4] font-sans min-h-screen p-6 sm:p-12 md:p-16">
@@ -50,7 +102,7 @@ export default function DeveloperTemplate({ data }) {
               <h2 className="text-xs font-mono text-[#E5A84B] uppercase tracking-widest">Selected Projects</h2>
             </div>
             <div className="space-y-24">
-              {sortedProjects.map((proj, idx) => (
+              {sortedProjects.map((proj: Project, idx: number) => (
                 <div key={idx} className="space-y-6">
                   <div className="flex justify-between items-baseline font-mono text-xs">
                     <span className="text-gray-500">0{idx + 1}</span>

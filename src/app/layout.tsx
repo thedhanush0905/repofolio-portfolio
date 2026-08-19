@@ -2,8 +2,8 @@ import React from "react";
 import "./globals.css";
 
 export const metadata = {
-  title: "Maddila Dhanush Srinivas — Portfolio",
-  description: "Full Stack Developer",
+  title: "Dhanush Maddila — Portfolio",
+  description: "Software Engineer",
 };
 
 export default function RootLayout({

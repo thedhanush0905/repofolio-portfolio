@@ -1,4 +1,4 @@
-# Maddila Dhanush Srinivas — Portfolio
+# Dhanush Maddila — Portfolio
 
 Generated with REPOfolio utilizing the **developer** template style.
 
